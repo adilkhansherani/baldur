@@ -10,17 +10,16 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   double kBorderRadius = 10.0;
+  bool? _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-            child: SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.symmetric(),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(),
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
           IntrinsicHeight(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -31,84 +30,91 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 0.5,
-            ), //                work here
-            width: 300,
-            child: const Column(children: [
-              SizedBox(
-                height: 15,
-                child: ColoredBox(color: Color(0x41835486)),
-              ),
-              Text(
-                'Hello',
-                style: TextStyle(
-                  fontSize: 50,
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.start,
-              ),
-              SizedBox(
-                height: 15,
-                child: ColoredBox(color: Color.fromARGB(255, 131, 84, 134)),
-              ),
-              Text(
-                "let's see Construction Expense Manager",
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(
-                height: 15,
-                child: ColoredBox(color: Color(0x41835486)),
-              ),
-              /**const Text(
-                "username",
-                style: TextStyle(
-                  fontSize: 10,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              */
-              TextField(
-                maxLength: 50,
-                decoration: InputDecoration(
-                  //labelText: 'Password', // Optional label text
-                  hintText: 'Username',
-                  /**labelStyle: TextStyle(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 0.5,
+              ), //                work here
+              width: 300,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 15,
+                    child: ColoredBox(color: Color(0x41835486)),
+                  ),
+                  const Text(
+                    'Hello',
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                    child: ColoredBox(color: Color.fromARGB(255, 131, 84, 134)),
+                  ),
+                  const Text(
+                    "let's see Construction Expense Manager",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                    child: ColoredBox(color: Color(0x41835486)),
+                  ),
+                  const TextField(
+                    maxLength: 50,
+                    decoration: InputDecoration(
+                      //labelText: 'Password', // Optional label text
+                      hintText: 'Username',
+                      /**labelStyle: TextStyle(
                     decoration: TextDecoration
                         .underline, // Add underline decoration to the label
                   ),
                   */
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color:
-                            Colors.grey), // Define the color of the underline
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .grey), // Define the color of the underline
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              TextField(
-                maxLength: 50,
-                decoration: InputDecoration(
-                  //labelText: 'Password', // Optional label text
-                  hintText: 'Password',
-                  /**labelStyle: TextStyle(
-                    decoration: TextDecoration
-                        .underline, // Add underline decoration to the label
+                  const TextField(
+                    maxLength: 50,
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors
+                                .grey), // Define the color of the underline
+                      ),
+                    ),
                   ),
-                  */
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(
-                        color:
-                            Colors.grey), // Define the color of the underline
-                  ),
-                ),
-              ),
-            ]),
-          ),
-        ],
+                  Row(
+                    children: [
+                      Checkbox(
+                        value: _isChecked,
+                        onChanged: (bool? newValue) {
+                          setState(() {
+                            _isChecked = newValue;
+                          });
+                        },
+                      ),
+                      const Text('Remember me'),
+                      const SizedBox(
+                        width: 50,
+                      ),
+                      const Text(
+                        'Forgot Password?',
+                        textAlign: TextAlign.end,
+                      )
+                    ],
+                  )
+                ],
+              )),
+        ]),
       ),
-    )));
+    ));
   }
 }
