@@ -110,7 +110,52 @@ class _LoginScreenState extends State<LoginScreen> {
                         textAlign: TextAlign.end,
                       )
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      textStyle: const TextStyle(fontSize: 18),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      elevation: 4,
+                    ),
+                    onPressed: () {
+                      // Add your sign-in logic here
+                    },
+                    child: const Text('login'),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 50, vertical: 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      elevation: 0,
+                    ),
+                    onPressed: () {
+                      // Add your sign-in logic here
+                    },
+                    child: const Text(
+                      'Sign up',
+                      style: TextStyle(
+                        color: Colors.blueGrey,
+                      ),
+                    ),
+                  ),
                 ],
               )),
         ]),
