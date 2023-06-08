@@ -31,6 +31,42 @@ class _BottomNavigatorState extends State<BottomNavigator> {
               offset: const Offset(0, 5))
         ],
       ),
+      child: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
+            icon:  Icon(Icons.home),
+                //: Icons.home_filled,
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: //_selectedIndex == 1
+                //? SvgPicture.asset('lib/svgs/directory_colored.svg'):
+                 SvgPicture.asset('lib/svgs/directory.svg'),
+            label: 'My Order',
+          ),
+          BottomNavigationBarItem(
+            icon: //_selectedIndex == 2
+                //? SvgPicture.asset('lib/svgs/quotation_colored.svg'):
+                 SvgPicture.asset('lib/svgs/quotation.svg'),
+            label: 'Watch List',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.analytics),//_selectedIndex == 3
+                //? SvgPicture.asset('lib/svgs/analytics_colored.svg')
+                //: SvgPicture.asset('lib/svgs/analytics.svg'),
+            label: 'Account',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: const Color.fromARGB(255, 248, 212, 103),
+        onTap: _onItemTapped,
+        backgroundColor: Colors.transparent,
+        type: BottomNavigationBarType.fixed,
+        selectedFontSize: 12,
+        showUnselectedLabels: true,
+        elevation: 0,
+      ),
     );
   }
 }
