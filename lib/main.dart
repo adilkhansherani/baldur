@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:baldur/login_screen.dart';
+//import 'package:baldur/login_screen.dart';
+import 'package:baldur/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,6 +44,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const LoginScreen();
+    return const HomeScreen();
   }
 }
