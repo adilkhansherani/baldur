@@ -1,5 +1,6 @@
 //import 'package:baldur/quotation.dart';
-import 'package:baldur/analytics.dart';
+//import 'package:baldur/analytics.dart';
+import 'package:baldur/projects.dart';
 //import 'package:baldur/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:baldur/bottom_navigator.dart';
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: const BottomNavigator(),
-      body: const Analytics(),
+      body: const Projects(),
     );
   }
 }
