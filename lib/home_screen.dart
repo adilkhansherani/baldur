@@ -1,4 +1,4 @@
-import 'package:baldur/home_page.dart';
+import 'package:baldur/quotation.dart';
 import 'package:flutter/material.dart';
 import 'package:baldur/bottom_navigator.dart';
 
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: const Icon(Icons.add),
       ),
       bottomNavigationBar: const BottomNavigator(),
-      body: const HomPage(),
+      body: const Quotation(),
     );
   }
 }
