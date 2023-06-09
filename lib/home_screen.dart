@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           'Today',
@@ -151,9 +151,76 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 15,
             ),
-            const Row(),
-            const SizedBox(),
-            Container(),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [Text('Recent transactions'), Text('see all')],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(
+                    bottom: 10,
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(children: [
+                            const CircleAvatar(
+                                radius: 20.5,
+                                backgroundColor: Colors.white,
+                                child: Icon(Icons.add_comment_outlined)),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'item $index',
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                const Text(
+                                  'Quantity',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ]),
+                          const Text(
+                            'INR *****',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
           ]),
         ),
       ]),
