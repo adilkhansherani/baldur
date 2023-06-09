@@ -25,8 +25,37 @@ class _AnalyticsState extends State<Analytics> {
           ),
           const Text('Date Overview'),
           SvgPicture.asset('lib/svgs/graphic_element.svg'),
-          const SizedBox(height: 15,),
+          const SizedBox(
+            height: 15,
+          ),
           Container(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Row(
+                    children: [
+                      CircleAvatar(child: Icon(Icons.credit_card_rounded)),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('All Budget')
+                    ],
+                  )),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Row(
+                    children: [
+                      CircleAvatar(child: Icon(Icons.credit_card_rounded)),
+                      SizedBox(
+                        width: 5,
+                      ),
+                      Text('All Budget')
+                    ],
+                  ))
+            ],
+          )
         ]),
       ),
     );
