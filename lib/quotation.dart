@@ -14,65 +14,83 @@ class _QuotationState extends State<Quotation> {
     return Scaffold(
       body: SafeArea(
           child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-              ),
+              padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
               physics: const BouncingScrollPhysics(),
               child: ClipRRect(
-                child: Container(
-                  color: const Color.fromARGB(255, 192, 224, 193),
-                  child: const Column(children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: [
-                        Column(
-                          children: [
-                            Text('XYZ-quotation'),
-                            SizedBox(height: 10),
-                            Text('21-05-2023'),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.show_chart),
-                            Icon(Icons.edit),
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text('Total area:**** Sq.ft'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    DottedLine(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(children: [
-                      Row(
+                borderRadius: BorderRadius.circular(20),
+                child: PhysicalModel(
+                  color: Colors.white,
+                  elevation: 18,
+                  shadowColor: Colors.red,////working        here
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            spreadRadius: 10,
+                            offset: const Offset(10, 18),
+                            blurRadius: 18,
+                            color: Colors.black.withOpacity(1),
+                          ),
+                        ]),
+                    child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.watch_later),
-                          Text('6 Months'),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Column(
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(Icons.camera_alt),
-                              Icon(Icons.drag_handle)
+                              Column(
+                                children: [
+                                  Text('XYZ-quotation'),
+                                  Text('21-05-2023'),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.show_chart),
+                                  Icon(Icons.edit),
+                                ],
+                              )
                             ],
                           ),
-                          Text('35Lakhs')
-                        ],
-                      )
-                    ])
-                  ]),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('Total area:**** Sq.ft'),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          DottedLine(),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(Icons.watch_later),
+                                    Text('6 Months'),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Icon(Icons.camera_alt),
+                                        Icon(Icons.drag_handle)
+                                      ],
+                                    ),
+                                    Text('35Lakhs')
+                                  ],
+                                )
+                              ])
+                        ]),
+                  ),
                 ),
               ))),
     );

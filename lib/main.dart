@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:baldur/login_screen.dart';
 import 'package:baldur/home_screen.dart';
-import 'package:baldur/quotation.dart';
+//import 'package:baldur/quotation.dart';
 
 void main() {
   runApp(const MyApp());
