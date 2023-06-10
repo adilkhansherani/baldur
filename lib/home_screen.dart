@@ -41,12 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        shape: const CircleBorder(),
-        onPressed: () {},
-        backgroundColor: const Color.fromARGB(255, 0x3B, 0x9B, 0x67),
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: const BottomSheetDrawer(),
       bottomNavigationBar: const SwipeUpMenu(),
       body: const Projects(),
       drawer: Drawer(
@@ -84,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomSheet: const BottomSheetExample(),
+      //bottomSheet: const BottomSheetExample(),
     );
   }
 }
