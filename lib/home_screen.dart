@@ -1,9 +1,11 @@
 //import 'package:baldur/quotation.dart';
 //import 'package:baldur/analytics.dart';
 import 'package:baldur/projects.dart';
+import 'package:baldur/swip_up_menu.dart';
 //import 'package:baldur/settings_page.dart';
 import 'package:flutter/material.dart';
-import 'package:baldur/bottom_navigator.dart';
+//import 'package:baldur/bottom_navigator.dart';
+import 'package:baldur/bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -45,8 +47,44 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: const Color.fromARGB(255, 0x3B, 0x9B, 0x67),
         child: const Icon(Icons.add),
       ),
-      bottomNavigationBar: const BottomNavigator(),
+      bottomNavigationBar: const SwipeUpMenu(),
       body: const Projects(),
+      drawer: Drawer(
+        // Add a ListView to the drawer. This ensures the user can scroll
+        // through the options in the drawer if there isn't enough vertical
+        // space to fit everything.
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+      bottomSheet: const BottomSheetExample(),
     );
   }
 }
