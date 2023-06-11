@@ -8,6 +8,7 @@ class BottomSheetDrawer extends StatefulWidget {
 }
 
 class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
+  bool _exitButtonHover = false;
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
@@ -29,12 +30,12 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                       offset: const Offset(0, 5))
                 ],
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(24),
-                  topRight: Radius.circular(24),
+                  topLeft: Radius.circular(41),
+                  topRight: Radius.circular(41),
                 ),
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   const SizedBox(
@@ -44,7 +45,7 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                     width: 80,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 201, 201, 201),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(41),
                     ),
                     child: const SizedBox(height: 5),
                   ),
@@ -109,7 +110,9 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                         isDense: true,
                         border: OutlineInputBorder(),
                         //labelText: 'Password', // Optional label text
-                        hintText: 'Project name',
+                        hintText: 'Project Name',
+                        hintStyle: TextStyle(
+                            color: Color.fromARGB(201, 201, 201, 201)),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Colors
@@ -122,7 +125,7 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: 150,
+                          width: 140,
                           child: TextField(
                             scrollPadding: EdgeInsets.all(5),
                             style: TextStyle(
@@ -132,6 +135,8 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                               isDense: true,
                               border: OutlineInputBorder(),
                               hintText: 'Name',
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(201, 201, 201, 201)),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors
@@ -154,6 +159,8 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                               isDense: true,
                               border: OutlineInputBorder(),
                               hintText: 'Amount',
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(201, 201, 201, 201)),
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Colors
@@ -163,11 +170,17 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                           ),
                         ),
                       ]),
-                  const SizedBox(
-                    width: 250,
-                    child: TextField(
+                  Container(
+                    width: 230,
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 4),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      //borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const TextField(
+                      maxLines: 2,
                       keyboardType: TextInputType.multiline,
-                      scrollPadding: EdgeInsets.all(5),
+                      scrollPadding: EdgeInsets.all(1),
                       style: TextStyle(
                         fontSize: 14,
                       ),
@@ -175,6 +188,8 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                         isDense: true,
                         border: OutlineInputBorder(),
                         hintText: 'Description',
+                        hintStyle: TextStyle(
+                            color: Color.fromARGB(201, 201, 201, 201)),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Colors
@@ -184,7 +199,7 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -193,7 +208,10 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFF4F4F)),
                         child: const SizedBox(
-                          child: Text('Cancel',style: TextStyle(color: Colors.white),),
+                          child: Text(
+                            'Cancel',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                         onPressed: () => Navigator.pop(context),
                       ),
@@ -202,15 +220,36 @@ class _BottomSheetDrawerState extends State<BottomSheetDrawer> {
                           backgroundColor: const Color(0xFF00843D),
                         ),
                         child: const SizedBox(
-                          child: Text('Submit',style: TextStyle(color: Colors.white),),
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                         onPressed: () => Navigator.pop(context),
                       ),
                     ],
                   ),
                   ElevatedButton(
-                    style: ElevatedButton.styleFrom(),
-                    child: const SizedBox(width: ,),
+                    onHover: (value) {
+                      setState(() {
+                        _exitButtonHover = true;
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            _exitButtonHover ? Colors.white : Colors.white,
+                        elevation: 0,
+                        padding: const EdgeInsets.symmetric(vertical: 0)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 201, 201, 201),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: const SizedBox(
+                        width: 134,
+                        height: 9.14,
+                      ),
+                    ),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ],

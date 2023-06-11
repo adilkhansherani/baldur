@@ -67,8 +67,8 @@ class _AnalyticsState extends State<Analytics> {
                     child: const Row(
                       children: [
                         CircleAvatar(
-                          child: Icon(Icons.credit_card_rounded),
                           backgroundColor: Colors.purpleAccent,
+                          child: Icon(Icons.credit_card_rounded),
                         ),
                         SizedBox(
                           width: 5,
