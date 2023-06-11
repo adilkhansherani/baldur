@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
 class HomPage extends StatefulWidget {
@@ -233,45 +234,60 @@ class _HomPageState extends State<HomPage> {
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(20)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(children: [
-                          const CircleAvatar(
-                              radius: 20.5,
-                              backgroundColor: Colors.white,
-                              child: Icon(Icons.add_comment_outlined)),
-                          const SizedBox(
-                            width: 20,
+                    child: Column(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(children: [
+                            const CircleAvatar(
+                                radius: 20.5,
+                                backgroundColor: Color(0xFF5AB584),
+                                child: Icon(
+                                  Icons.person,
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                )),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('Cement $index',
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    )),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                const Text(
+                                  'Quantity \n 5 quantity x 460 Rs',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 9,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ]),
+                          Text(
+                            'INR 1240',
+                            style: TextStyle(
+                              color: Colors.green[400],
+                            ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'item $index',
-                                style: const TextStyle(
-                                    color: Colors.white, fontFamily: 'Abel'),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              const Text(
-                                'Quantity',
-                                style: TextStyle(
-                                    color: Colors.white, fontFamily: 'Abel'),
-                              ),
-                            ],
-                          ),
-                        ]),
-                        const Text(
-                          'INR *****',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      const DottedLine(),
+                    ]),
                   ),
                 ),
               );
