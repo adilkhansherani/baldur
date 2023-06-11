@@ -17,13 +17,16 @@ class _HomPageState extends State<HomPage> {
           const SizedBox(
             height: 15,
           ),
+
+          //Total Balance window
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Container(
-              width: 350,
+              width: 342,
+              height: 206,
               alignment: Alignment.center,
-              color: const Color(0xff5AB584),
-              padding: const EdgeInsets.fromLTRB(50, 20, 50, 20),
+              color: const Color(0xFF5AB584),
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Column(
                 children: [
                   const Row(
@@ -31,81 +34,143 @@ class _HomPageState extends State<HomPage> {
                     children: [
                       Text(
                         'Today',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Abel',
+                        ),
                       ),
                       Icon(
                         Icons.arrow_drop_down,
-                        color: Colors.black,
+                        color: Colors.white,
                       )
                     ],
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
-                  const Text('Total Balance'),
-                  const SizedBox(
-                    height: 20,
+                  const Text(
+                    'Total Balance',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Abel',
+                      fontSize: 22,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                  const Text('10009625.0 INR'),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
+                  ),
+                  const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          '10009625.0 ',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Abel',
+                              fontSize: 24,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        Text(
+                          'INR',
+                          style: TextStyle(
+                              color: Color(0xFFDFCCF8),
+                              fontFamily: 'Abel',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ]),
+                  const SizedBox(
+                    height: 10,
                   ),
                   ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(20)),
                     child: Container(
-                      padding: const EdgeInsets.fromLTRB(50, 20, 50, 20),
+                      height: 68,
+                      width: 292,
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                       color: const Color(0xFF3B9B67),
-                      child: const Row(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         //income and expences section
                         children: [
-                          Column(
+                          const Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             //income side
                             children: [
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
                                     Icons.arrow_downward,
-                                    color: Colors.black,
+                                    color: Color(0xFF05EC61),
                                   ),
                                   Text(
                                     'Income',
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Abel'),
                                   )
                                 ],
                               ),
                               SizedBox(
                                 height: 10,
                               ),
-                              Text('40000'),
+                              Text(
+                                '40000',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Abel',
+                                ),
+                              ),
                             ],
                           ),
-                          Expanded(
-                            //didn't work, work here
-                            child: VerticalDivider(
-                              width: 20,
-                              thickness: 5,
-                              color: Color.fromARGB(255, 247, 22, 22),
+                          Container(
+                            height: 48,
+                            padding: EdgeInsets.zero,
+                            margin: EdgeInsets.zero,
+                            decoration: const BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                              color: Colors.white,
+                            ),
+                            child: const VerticalDivider(
+                              width: 2,
+                              thickness: 1,
+                              color: Colors.white,
                             ),
                           ),
-                          Column(
+                          const Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             //expense side
                             children: [
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
                                     Icons.arrow_upward,
-                                    color: Colors.black,
+                                    color: Color(0xFFFF0E0E),
                                   ),
                                   Text(
-                                    'expense',
-                                    style: TextStyle(color: Colors.black),
+                                    'Expense',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontFamily: 'Abel'),
                                   )
                                 ],
                               ),
                               SizedBox(
                                 height: 10,
                               ),
-                              Text('38725'),
+                              Text(
+                                '38725',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Abel',
+                                ),
+                              ),
                             ],
                           )
                         ],
@@ -116,16 +181,41 @@ class _HomPageState extends State<HomPage> {
               ),
             ),
           ),
+
           const SizedBox(
             height: 15,
           ),
+
+          // Recent transaction row
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text('Recent transactions'), Text('see all')],
+            children: [
+              Text(
+                'Recent transactions',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontFamily: 'Actor',
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              Text(
+                'see all',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontFamily: 'Actor',
+                  fontWeight: FontWeight.w400,
+                ),
+              )
+            ],
           ),
+
           const SizedBox(
             height: 15,
           ),
+
+          // list builder to show list of recent transaction
           ListView.builder(
             shrinkWrap: true,
             itemCount: 5,
@@ -139,7 +229,7 @@ class _HomPageState extends State<HomPage> {
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black,
+                          color: Colors.white,
                           width: 1,
                         ),
                         borderRadius: BorderRadius.circular(20)),
@@ -161,8 +251,7 @@ class _HomPageState extends State<HomPage> {
                               Text(
                                 'item $index',
                                 style: const TextStyle(
-                                  color: Colors.black,
-                                ),
+                                    color: Colors.white, fontFamily: 'Abel'),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -170,8 +259,7 @@ class _HomPageState extends State<HomPage> {
                               const Text(
                                 'Quantity',
                                 style: TextStyle(
-                                  color: Colors.black,
-                                ),
+                                    color: Colors.white, fontFamily: 'Abel'),
                               ),
                             ],
                           ),
@@ -179,7 +267,7 @@ class _HomPageState extends State<HomPage> {
                         const Text(
                           'INR *****',
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ],
