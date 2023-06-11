@@ -1,10 +1,10 @@
 //import 'package:baldur/quotation.dart';
 //import 'package:baldur/analytics.dart';
 import 'package:baldur/projects.dart';
-import 'package:baldur/swip_up_menu.dart';
+//import 'package:baldur/swip_up_menu.dart';
 //import 'package:baldur/settings_page.dart';
 import 'package:flutter/material.dart';
-//import 'package:baldur/bottom_navigator.dart';
+import 'package:baldur/bottom_navigator.dart';
 import 'package:baldur/bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: const BottomSheetDrawer(),
-      bottomNavigationBar: const SwipeUpMenu(),
+      bottomNavigationBar: const BottomNavigator(),
       body: const Projects(),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
