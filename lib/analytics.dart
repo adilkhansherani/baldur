@@ -1,3 +1,4 @@
+import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
@@ -45,9 +46,108 @@ class _AnalyticsState extends State<Analytics> {
             ),
             SvgPicture.asset('lib/svgs/graphic_element.svg'),
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
-            Container(), //need work
+            //need work
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: const BoxDecoration(color: Color(0xffeeeeee)),
+              child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'RVKS-quotation',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Poppins'),
+                            ),
+                            Text(
+                              '21-05-2023',
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: 'Inter'),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.circle_notifications_sharp),
+                            Icon(Icons.edit),
+                          ],
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'Total area:**** Sq.ft',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Inter'),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    DottedLine(
+                      dashLength: 30,
+                      lineThickness: 3,
+                      dashGapLength: 0,
+                      dashColor: Colors.yellow,
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.watch_later),
+                              Text(
+                                '6 Months',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Inter'),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Icon(Icons.attach_money_rounded),
+                              Text(
+                                '35Lakhs',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: 'Inter'),
+                              )
+                            ],
+                          )
+                        ])
+                  ]),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
