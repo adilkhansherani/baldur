@@ -72,46 +72,31 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
-          children: const [
-            Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Row(
-                        children: [Icon(Icons.home), Text('Profile')],
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.add_business),
-                          Text('Add Venture')
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.payments_rounded),
-                          Text('Payments')
-                        ],
-                      ),
-                      Row(
-                        children: [Icon(Icons.person), Text('Contact Us')],
-                      ),
-                      Row(
-                        children: [Icon(Icons.help), Text('About Us')],
-                      ),
-                      Row(
-                        children: [
-                          Icon(Icons.person_pin_rounded),
-                          Text('Privacy Policy')
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [Icon(Icons.logout_rounded), Text('Log Out')],
-                  ),
-                ]),
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Update the state of the app
+                // ...
+                // Then close the drawer
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),

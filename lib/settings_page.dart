@@ -37,38 +37,153 @@ class _SettingsPageState extends State<SettingsPage> {
           width: 300,
           child: const Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [Icon(Icons.home), Text('Profile')],
-                    ),
-                    Row(
-                      children: [Icon(Icons.add_business), Text('Add Venture')],
+                    SizedBox(
+                      height: 15,
                     ),
                     Row(
                       children: [
-                        Icon(Icons.payments_rounded),
-                        Text('Payments')
+                        Icon(
+                          Icons.home,
+                          size: 35,
+                        ),
+                        Text(
+                          'Profile',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
                       ],
                     ),
-                    Row(
-                      children: [Icon(Icons.person), Text('Contact Us')],
-                    ),
-                    Row(
-                      children: [Icon(Icons.help), Text('About Us')],
+                    SizedBox(
+                      height: 15,
                     ),
                     Row(
                       children: [
-                        Icon(Icons.person_pin_rounded),
-                        Text('Privacy Policy')
+                        Icon(
+                          Icons.add_business,
+                          size: 35,
+                        ),
+                        Text(
+                          'Add Venture',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.payments_rounded,
+                          size: 35,
+                        ),
+                        Text(
+                          'Payments',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.person,
+                          size: 35,
+                        ),
+                        Text(
+                          'Contact Us',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.help,
+                          size: 35,
+                        ),
+                        Text(
+                          'About Us',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.person_pin_rounded,
+                          size: 35,
+                        ),
+                        Text(
+                          'Privacy Policy',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontFamily: 'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
                       ],
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 15,
+                ),
                 Row(
-                  children: [Icon(Icons.logout_rounded), Text('Log Out')],
+                  children: [
+                    Icon(
+                      Icons.logout_rounded,
+                      size: 35,
+                    ),
+                    Text(
+                      'Log Out',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Inter',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
                 ),
               ]),
         ),
