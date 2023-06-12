@@ -188,10 +188,10 @@ class _HomePageState extends State<HomePage> {
           ),
 
           // Recent transaction row
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 'Recent transactions',
                 style: TextStyle(
                   fontSize: 18,
@@ -200,7 +200,10 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text(
+              TextButton(onPressed: () {
+                Navigator.pushReplacementNamed(context, '/search');
+              }, child:
+              const Text(
                 'see all',
                 style: TextStyle(
                   fontSize: 16,
@@ -208,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                   fontFamily: 'Actor',
                   fontWeight: FontWeight.w400,
                 ),
-              )
+              ),),
             ],
           ),
 

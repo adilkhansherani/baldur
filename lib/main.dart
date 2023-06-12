@@ -1,4 +1,5 @@
 import 'package:baldur/login_screen.dart';
+import 'package:baldur/search_page.dart';
 import 'package:baldur/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:baldur/home_screen.dart';
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const MyHomePage(),
         '/settings': (context) => const SettingsPage(),
         '/login': (context) => const LoginScreen(),
-        //'/search':(context)=> const SearchPage(),
+        '/search':(context)=> const SearchPage(),
         //'/addProject':(context)=> const addProjectPage(),
       },
     );
