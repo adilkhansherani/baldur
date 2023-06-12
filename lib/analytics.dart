@@ -14,51 +14,47 @@ class _AnalyticsState extends State<Analytics> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
-          child: Column(children: [
+          padding: const EdgeInsets.fromLTRB(36, 10, 36, 0),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             //LinearProgressIndicator(),
             const SizedBox(
-              height: 15,
+              height: 7,
             ),
-            const Text('Monthly Limit'),
+            const Text(
+              'Monthly Limit',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Abel'),
+            ),
             const SizedBox(
-              height: 15,
+              height: 22,
             ),
-            const Text('Date Overview'),
+            const Text(
+              'Date Overview',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w800,
+                  fontFamily: 'Abril Fatface'),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
             SvgPicture.asset('lib/svgs/graphic_element.svg'),
             const SizedBox(
               height: 15,
             ),
-            Container(),                                  //need work
+            Container(), //need work
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2584FE),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        CircleAvatar(child: Icon(Icons.credit_card_rounded)),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text('All Budget')
-                      ],
-                    )),
-                const SizedBox(
-                  width: 25,
-                ),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 30, vertical: 12),
+                      padding: const EdgeInsets.all(12),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -67,13 +63,39 @@ class _AnalyticsState extends State<Analytics> {
                     child: const Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor: Colors.purpleAccent,
-                          child: Icon(Icons.credit_card_rounded),
-                        ),
+                            child: Icon(
+                          Icons.credit_card_rounded,
+                          size: 20,
+                        )),
                         SizedBox(
                           width: 5,
                         ),
                         Text('All Budget')
+                      ],
+                    )),
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: Color(0xFF7E5DF6),
+                          child: Icon(
+                            Icons.credit_card_rounded,
+                            size: 20,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'All Budget',
+                        )
                       ],
                     ))
               ],
@@ -84,6 +106,10 @@ class _AnalyticsState extends State<Analytics> {
             const Text(
               'Transaction list',
               textAlign: TextAlign.start,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'Poppins'),
             ),
             const SizedBox(
               height: 15,
@@ -100,10 +126,6 @@ class _AnalyticsState extends State<Analytics> {
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
                       decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 1,
-                          ),
                           borderRadius: BorderRadius.circular(20)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,19 +142,23 @@ class _AnalyticsState extends State<Analytics> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  'item $index',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                  ),
-                                ),
+                                Text('item $index',
+                                    style: const TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    )),
                                 const SizedBox(
-                                  height: 10,
+                                  height: 5,
                                 ),
                                 const Text(
                                   'Quantity',
                                   style: TextStyle(
                                     color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 9,
                                   ),
                                 ),
                               ],
@@ -141,7 +167,10 @@ class _AnalyticsState extends State<Analytics> {
                           const Text(
                             'INR *****',
                             style: TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 94, 214, 100),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                              fontSize: 12,
                             ),
                           ),
                         ],

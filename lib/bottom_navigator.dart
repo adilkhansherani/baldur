@@ -62,7 +62,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
               icon: Icon(Icons.show_chart), //_selectedIndex == 3
               //? SvgPicture.asset('lib/svgs/analytics_colored.svg')
               //: SvgPicture.asset('lib/svgs/analytics.svg'),
-              label: 'Account',
+              label: 'Analytics',
             ),
           ],
           currentIndex: widget.currentIndex,
