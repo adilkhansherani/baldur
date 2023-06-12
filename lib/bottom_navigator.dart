@@ -1,21 +1,30 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart  ';
+//import 'package:flutter_svg/flutter_svg.dart';
+
+int _selectedIndex = 0;
 
 class BottomNavigator extends StatefulWidget {
-  const BottomNavigator({super.key});
+  const BottomNavigator({super.key,required this.currentIndex,required this.onTap});
+
+  final int currentIndex ;
+  final Function(int val) onTap;
 
   @override
-  State<BottomNavigator> createState() => _BottomNavigatorState();
+  // ignore: no_logic_in_create_state
+  State<BottomNavigator> createState() => _BottomNavigatorState(currentIndex: currentIndex,onTabTapped: onTap);
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
-  int _selectedIndex = 0;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  _BottomNavigatorState({
+    required this.currentIndex,
+    required this.onTabTapped,
+  });
+
+  int currentIndex=0;
+  final Function(int val) onTabTapped;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +60,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
               //? SvgPicture.asset('lib/svgs/quotation_colored.svg'):
               //SvgPicture.asset('lib/svgs/quotation.svg'),
               label: 'Quotation',
+              
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.analytics), //_selectedIndex == 3
@@ -62,7 +72,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           currentIndex: _selectedIndex,
           selectedItemColor: const Color.fromARGB(255, 136, 200, 253),
           unselectedItemColor: Colors.white,
-          onTap: _onItemTapped,
+          onTap: onTabTapped,
           backgroundColor: Colors.transparent,
           type: BottomNavigationBarType.fixed,
           selectedFontSize: 12,

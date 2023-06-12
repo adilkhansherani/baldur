@@ -1,14 +1,14 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 
-class HomPage extends StatefulWidget {
-  const HomPage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomPage> createState() => _HomPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomPageState extends State<HomPage> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return ListView(physics: const ClampingScrollPhysics(), children: <Widget>[
