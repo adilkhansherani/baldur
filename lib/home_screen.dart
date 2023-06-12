@@ -51,9 +51,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 Icons.settings,
                 color: Colors.white,
               )),
-          const Icon(
-            Icons.person,
-            color: Colors.white,
+          IconButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, '/login');
+            },
+            icon: const Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
           ),
           const SizedBox(width: 9),
         ],

@@ -156,6 +156,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, '/');
+                      },
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontFamily: 'Inter',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )),
+                  const SizedBox(
+                    height: 40,
+                  )
                 ],
               )),
         ]),
