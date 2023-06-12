@@ -1,3 +1,4 @@
+import 'package:baldur/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:baldur/home_screen.dart';
 
@@ -33,7 +34,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      //home: const MyHomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(),
+        '/settings': (context) => const SettingsPage(),
+        //'/search':(context)=> const SearchPage(),
+        //'/addProject':(context)=> const addProjectPage(),
+      },
     );
   }
 }

@@ -15,24 +15,22 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var selectedIndex = 0;
-  
+
   final List<Widget> _screens = [
     const HomePage(),
     const Projects(),
     const Quotation(),
-    const Analytics()
+    const Analytics(),
   ];
-  
+
   void _onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF3B9B67),
@@ -44,21 +42,28 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         elevation: 2,
-        actions: const [
-          Icon(
-            Icons.settings,
-            color: Colors.white,
-          ),
-          Icon(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/settings');
+              },
+              icon: const Icon(
+                Icons.settings,
+                color: Colors.white,
+              )),
+          const Icon(
             Icons.person,
             color: Colors.white,
           ),
-          SizedBox(width: 9),
+          const SizedBox(width: 9),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: const BottomSheetDrawer(),
-      bottomNavigationBar: BottomNavigator(currentIndex: selectedIndex,onTap: _onItemTapped,),
+      bottomNavigationBar: BottomNavigator(
+        currentIndex: selectedIndex,
+        onTap: _onItemTapped,
+      ),
       body: _screens[selectedIndex],
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
@@ -67,31 +72,46 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           // Important: Remove any padding from the ListView.
           padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
+          children: const [
+            Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        children: [Icon(Icons.home), Text('Profile')],
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.add_business),
+                          Text('Add Venture')
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.payments_rounded),
+                          Text('Payments')
+                        ],
+                      ),
+                      Row(
+                        children: [Icon(Icons.person), Text('Contact Us')],
+                      ),
+                      Row(
+                        children: [Icon(Icons.help), Text('About Us')],
+                      ),
+                      Row(
+                        children: [
+                          Icon(Icons.person_pin_rounded),
+                          Text('Privacy Policy')
+                        ],
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [Icon(Icons.logout_rounded), Text('Log Out')],
+                  ),
+                ]),
           ],
         ),
       ),

@@ -50,7 +50,7 @@ class _AnalyticsState extends State<Analytics> {
             ),
             //need work
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: const BoxDecoration(color: Color(0xffeeeeee)),
               child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

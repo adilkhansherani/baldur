@@ -11,6 +11,7 @@ class BottomNavigator extends StatefulWidget {
   @override
   // ignore: no_logic_in_create_state
   State<BottomNavigator> createState() =>
+  // ignore: no_logic_in_create_state
       _BottomNavigatorState(currentIndex: currentIndex, onTabTapped: onTap);
 }
 
