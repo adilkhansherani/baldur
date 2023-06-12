@@ -19,36 +19,68 @@ class _ProjectsState extends State<Projects> {
           itemBuilder: (context, index) {
             return Container(
               margin: const EdgeInsets.only(
+                left: 5,
+                top: 0,
+                right: 5,
                 bottom: 10,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3), // changes the shadow offset
+                  ),
+                ],
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(20)),
+                  padding: const EdgeInsets.all(10),
+                  //decoration:
+                  //    BoxDecoration(borderRadius: BorderRadius.circular(20)),
                   child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(
-                          height: 10,
+                          height: 4,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('XYZ-constructions'),
                                 Text(
-                                    'Laoern ipsum dolor sit amet constar elit'),
+                                  'The Constructions Ltd ',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Poppins'),
+                                ),
+                                Text(
+                                  'Laoern ipsum dolor sit amet constar elit',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      fontFamily: 'Inter'),
+                                ),
                               ],
                             ),
                           ],
                         ),
-                        DottedLine(),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        DottedLine(
+                          dashLength: 2,
+                        ),
                         SizedBox(
                           height: 10,
                         ),
