@@ -1,5 +1,4 @@
-import 'package:dotted_line/dotted_line.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:paginated_search_bar/paginated_search_bar.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -9,11 +8,18 @@ class SearchPage extends StatefulWidget {
   State<SearchPage> createState() => _SearchPageState();
 }
 
+class ExampleItem {
+  final String title;
+
+  ExampleItem({
+    required this.title,
+  });
+}
+
 class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       appBar: AppBar(
         backgroundColor: const Color(0xFF3B9B67),
         title: const Text(
@@ -23,26 +29,22 @@ class _SearchPageState extends State<SearchPage> {
             fontSize: 25,
           ),
         ),
-        elevation: 2,
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/settings');
-              },
-              icon: const Icon(
-                Icons.settings,
-                color: Colors.white,
-              )),
-          IconButton(
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, '/login');
-            },
-            icon: const Icon(
-              Icons.person,
-              color: Colors.white,
-            ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/');
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.white,
           ),
-          const SizedBox(width: 9),
+        ),
+        elevation: 2,
+        actions: const [
+          Icon(
+            Icons.align_horizontal_right,
+            color: Colors.white,
+          ),
+          SizedBox(width: 9),
         ],
       ),
       body: SingleChildScrollView(
@@ -51,204 +53,52 @@ class _SearchPageState extends State<SearchPage> {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             //LinearProgressIndicator(),
-            const SizedBox(
-              height: 7,
-            ),
-            const Text(
-              'Monthly Limit',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Abel'),
-            ),
-            const SizedBox(
-              height: 22,
-            ),
-            const Text(
-              'Date Overview',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'Abril Fatface'),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            SvgPicture.asset('lib/svgs/graphic_element.svg'),
-            const SizedBox(
-              height: 10,
-            ),
-            //need work
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: const BoxDecoration(color: Color(0xffeeeeee)),
-              child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'RVKS-quotation',
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: 'Poppins'),
-                            ),
-                            Text(
-                              '21-05-2023',
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                  fontFamily: 'Inter'),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.circle_notifications_sharp),
-                            Icon(Icons.edit),
-                          ],
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'Total area:**** Sq.ft',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Inter'),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    DottedLine(
-                      dashLength: 30,
-                      lineThickness: 3,
-                      dashGapLength: 0,
-                      dashColor: Colors.yellow,
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(Icons.watch_later),
-                              Text(
-                                '6 Months',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: 'Inter'),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              Icon(Icons.attach_money_rounded),
-                              Text(
-                                '35Lakhs',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: 'Inter'),
-                              )
-                            ],
-                          )
-                        ])
-                  ]),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF2584FE),
-                      padding: const EdgeInsets.all(12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        CircleAvatar(
-                            child: Icon(
-                          Icons.credit_card_rounded,
-                          size: 20,
+                SizedBox(
+                  width: 250,
+                  child: PaginatedSearchBar<ExampleItem>(
+                    maxHeight: 30,
+                    hintText: 'search',
+                    containerDecoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 236, 236, 236),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 107, 107, 107),
                         )),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text('All Budget')
-                      ],
-                    )),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.all(12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Color(0xFF7E5DF6),
-                          child: Icon(
-                            Icons.credit_card_rounded,
-                            size: 20,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'All Budget',
-                        )
-                      ],
-                    ))
+                    onSearch: ({
+                      required pageIndex,
+                      required pageSize,
+                      required searchQuery,
+                    }) async {
+                      // Call your search API to return a list of items
+                      return [
+                        //ExampleItem(title: 'Item 0'),
+                        //ExampleItem(title: 'Item 1'),
+                      ];
+                    },
+                    itemBuilder: (
+                      context, {
+                      required item,
+                      required index,
+                    }) {
+                      return Text(item.title);
+                    },
+                  ),
+                ),
+                const Icon(
+                  Icons.calendar_today,
+                  size: 20,
+                )
               ],
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Transaction list',
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Poppins'),
             ),
             const SizedBox(
               height: 15,
             ),
             ListView.builder(
               shrinkWrap: true,
-              itemCount: 5,
+              itemCount: 9,
               itemBuilder: (context, index) {
                 return Container(
                   margin: const EdgeInsets.only(
